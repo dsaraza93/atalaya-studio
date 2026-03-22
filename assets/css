@@ -1,0 +1,392 @@
+/* =========================
+VARIABLES (PRO LEVEL)
+========================= */
+:root {
+    --color-primary: #6c63ff;
+    --color-primary-dark: #574fd6;
+    --color-bg: #f5f5f5;
+    --color-dark: #111;
+    --color-text: #333;
+    --color-muted: #666;
+    --shadow-soft: 0 5px 15px rgba(0,0,0,0.05);
+    --shadow-hover: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* =========================
+RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+LAYOUT GENERAL
+========================= */
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =========================
+HEADER / NAVBAR
+========================= */
+header {
+    background: var(--color-dark);
+    color: white;
+    padding: 1rem 0;
+}
+
+nav {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-primary);
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+nav button {
+    display: none;
+}
+
+/* =========================
+HERO (MEJORADO)
+========================= */
+#hero {
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+                url('../assets/images/graphic-designers-meeting.jpg') center/cover no-repeat;
+
+    text-align: center;
+    padding: 140px 20px;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TITULO */
+#hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.7);
+
+    max-width: 750px;
+}
+
+/* TEXTO */
+#hero p {
+    color: #eee;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+
+    max-width: 650px;
+    margin-bottom: 35px;
+}
+
+/* BOTON */
+#hero a {
+    display: inline-block;
+    margin-top: 10px;
+
+    background: var(--color-primary);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 10px;
+
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+/* HOVER BOTON */
+#hero a:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+/* =========================
+SERVICIOS (🔥 NIVEL PRO)
+========================= */
+#servicios {
+    padding: 80px 0;
+}
+
+#servicios h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#servicios .subtitle {
+    text-align: center;
+    color: var(--color-muted);
+    margin-bottom: 50px;
+}
+
+/* GRID */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* CARD */
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+
+    display: flex;
+    flex-direction: column;
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER */
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ICONO */
+.service-card .icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+/* TITULO */
+.service-card h3 {
+    margin-bottom: 10px;
+}
+
+/* TEXTO */
+.service-card p {
+    color: var(--color-muted);
+    margin-bottom: 15px;
+}
+
+/* LISTA */
+.service-card ul {
+    margin-bottom: 20px;
+}
+
+.service-card li {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* BADGE */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 20px;
+    background: #eee;
+    margin-bottom: 15px;
+}
+
+/* BOTON */
+.service-card a {
+    margin-top: auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    transition: 0.3s;
+}
+
+.service-card a:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* =========================
+NOSOTROS
+========================= */
+#nosotros {
+    padding: 80px 0;
+    text-align: center;
+}
+
+#nosotros h2 {
+    margin-bottom: 20px;
+}
+
+/* =========================
+TESTIMONIOS
+========================= */
+#testimonios {
+    padding: 80px 0;
+}
+
+#testimonios h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+#testimonials-container article {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+    transition: 0.3s;
+}
+
+#testimonials-container article:hover {
+    transform: translateY(-8px);
+}
+
+#testimonials-container h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+#testimonials-container p {
+    font-size: 14px;
+    color: var(--color-muted);
+}
+
+/* =========================
+FORMULARIO
+========================= */
+#contacto {
+    padding: 80px 0;
+}
+
+#contacto h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+button[type="submit"] {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+    background: var(--color-primary-dark);
+}
+
+/* =========================
+FOOTER
+========================= */
+footer {
+    background: var(--color-dark);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: var(--color-dark);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    nav button {
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+}

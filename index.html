@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atalaya Studio</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS (CORREGIDO) -->
+    <link rel="stylesheet" href="assets/css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <h2>Atalaya Studio</h2>
+
+            <!-- BOTÓN MENU -->
+            <button aria-expanded="false">☰</button>
+
+            <!-- MENU (ID NECESARIO PARA JS) -->
+            <ul id="menu-principal">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section id="hero">
+            <h1>Diseño que convierte ideas en marcas memorables</h1>
+
+            <p>
+                Creamos branding, contenido digital y experiencias visuales
+                que impulsan tu negocio.
+            </p>
+
+            <a href="#contacto">🚀 Solicitar propuesta</a>
+        </section>
+
+
+        <!-- SERVICIOS -->
+        <section id="servicios">
+
+            <h2>Servicios que hacen crecer tu marca</h2>
+            <p class="subtitle">
+                Creamos soluciones visuales estratégicas para aumentar tu impacto y ventas.
+            </p>
+
+            <div class="servicios-grid">
+
+                <article class="service-card">
+                    <div class="icon">🎨</div>
+                    <h3>Identidad Visual</h3>
+                    <p>Diseñamos marcas sólidas que transmiten confianza y profesionalismo.</p>
+                    <ul>
+                        <li>✔ Logotipo profesional</li>
+                        <li>✔ Manual de marca</li>
+                        <li>✔ Colores y tipografía</li>
+                    </ul>
+                    <span class="badge">Alta demanda</span>
+                    <a href="#contacto">Cotizar servicio →</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon">📱</div>
+                    <h3>Contenido para Redes</h3>
+                    <p>Diseños estratégicos que aumentan tu alcance y engagement.</p>
+                    <ul>
+                        <li>✔ Posts y carruseles</li>
+                        <li>✔ Historias y reels</li>
+                        <li>✔ Diseño para campañas</li>
+                    </ul>
+                    <span class="badge">Más vendido</span>
+                    <a href="#contacto">Solicitar ahora →</a>
+                </article>
+
+                <article class="service-card">
+                    <div class="icon">🌐</div>
+                    <h3>Landing Pages</h3>
+                    <p>Creamos páginas modernas enfocadas en convertir visitas en clientes.</p>
+                    <ul>
+                        <li>✔ Diseño responsive</li>
+                        <li>✔ Optimización de velocidad</li>
+                        <li>✔ Alta conversión</li>
+                    </ul>
+                    <span class="badge">Alta conversión</span>
+                    <a href="#contacto">Ver propuesta →</a>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOSOTROS -->
+        <section id="nosotros">
+            <h2>Sobre nosotros</h2>
+            <p>
+                En Atalaya Studio combinamos creatividad, estrategia y tecnología
+                para ayudar a las marcas a destacar en el mundo digital.
+            </p>
+        </section>
+
+
+        <!-- TESTIMONIOS -->
+        <section id="testimonios">
+            <h2>Testimonios</h2>
+
+            <!-- ESTE ID ES CLAVE PARA TU JS -->
+            <div id="testimonials-container">
+                <p>Cargando testimonios...</p>
+            </div>
+        </section>
+
+
+        <!-- CONTACTO -->
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+
+            <!-- FORM CORREGIDO -->
+            <form id="contact-form">
+
+                <div>
+                    <label>Nombre</label>
+                    <input type="text" id="nombre" required>
+                </div>
+
+                <div>
+                    <label>Correo</label>
+                    <input type="email" id="correo" required>
+                </div>
+
+                <div>
+                    <label>Mensaje</label>
+                    <textarea id="mensaje" rows="4" required></textarea>
+                </div>
+
+                <button type="submit">Enviar mensaje</button>
+
+            </form>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Atalaya Studio - Todos los derechos reservados</p>
+    </footer>
+
+    <!-- JS (IMPORTANTE) -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
