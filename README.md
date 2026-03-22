@@ -22,8 +22,8 @@ Este proyecto fue desarrollado aplicando principios de **diseño responsivo, mod
 ```
 📁 atalaya-studio
 ├── index.html
-├── css/
-│   └── styles.css
+├── css
+│ 
 ├── js/
 │   └── app.js
 └── assets/
