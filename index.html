@@ -480,10 +480,6 @@
                 border-bottom: 1px solid var(--color-border);
             }
 
-            #menu-principal.open {
-                display: flex;
-            }
-
             .servicios-grid {
                 grid-template-columns: 1fr;
             }
@@ -589,7 +585,9 @@
     <p>El deporte transforma cuerpo y mente. Cada día es una oportunidad para superarte, para ser más fuerte, más rápido, más resiliente. No se trata de competir contra otros — se trata de ser mejor que ayer.</p>
 </section>
 
-<!-- FORM NO TOCADO -->
+
+
+<!-- FORM  -->
 <section id="contacto">
     <h2>Comentarios</h2>
 
@@ -622,35 +620,18 @@
 </footer>
 
 <script>
-    // Mobile menu toggle
-    const menuBtn = document.querySelector('nav button');
-    const menu = document.getElementById('menu-principal');
-
-    menuBtn.addEventListener('click', () => {
-        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', !expanded);
-        menu.classList.toggle('open');
-    });
-
-    // Close menu on link click
-    menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.remove('open');
-            menuBtn.setAttribute('aria-expanded', 'false');
-        });
-    });
-
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
+    // Scroll reveal (no conflicts with app.js)
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
         });
     }, { threshold: 0.15 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 </script>
+
+<script src="js/app.js"></script>
 
 </body>
 </html>
