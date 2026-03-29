@@ -5,166 +5,652 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Atalaya Studio</title>
+    <title>Atalaya Sports</title>
 
-    <!-- GOOGLE FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-    <!-- CSS (CORREGIDO) -->
-    <link rel="stylesheet" href="assets/css">
+    <style>
+        :root {
+            --color-bg: #0a0a0a;
+            --color-surface: #111111;
+            --color-surface-elevated: #1a1a1a;
+            --color-accent: #e8ff00;
+            --color-accent-dim: #c4d900;
+            --color-text: #f0f0f0;
+            --color-text-muted: #888888;
+            --color-border: #222222;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text);
+            overflow-x: hidden;
+        }
+
+        /* ─── NAV ─── */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            color: var(--color-accent);
+            text-transform: uppercase;
+        }
+
+        nav button {
+            display: none;
+            background: none;
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            font-size: 1.4rem;
+            padding: 0.4rem 0.7rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        nav button:hover {
+            border-color: var(--color-accent);
+        }
+
+        #menu-principal {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        #menu-principal a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        #menu-principal a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        #menu-principal a:hover {
+            color: var(--color-text);
+        }
+
+        #menu-principal a:hover::after {
+            width: 100%;
+        }
+
+        /* ─── HERO ─── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 40%, rgba(232, 255, 0, 0.06) 0%, transparent 70%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 60px,
+                    rgba(255,255,255,0.015) 60px,
+                    rgba(255,255,255,0.015) 61px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 60px,
+                    rgba(255,255,255,0.015) 60px,
+                    rgba(255,255,255,0.015) 61px
+                );
+            pointer-events: none;
+        }
+
+        #hero::after {
+            content: 'SPORT';
+            position: absolute;
+            font-family: var(--font-display);
+            font-size: clamp(8rem, 22vw, 20rem);
+            color: rgba(255,255,255,0.02);
+            letter-spacing: 0.1em;
+            pointer-events: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+
+        #hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 7rem);
+            letter-spacing: 4px;
+            line-height: 1;
+            text-transform: uppercase;
+            position: relative;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        #hero h1 span {
+            color: var(--color-accent);
+        }
+
+        #hero p {
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: slideUp 0.8s ease-out 0.15s both;
+        }
+
+        #hero > a {
+            margin-top: 2.5rem;
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+            animation: slideUp 0.8s ease-out 0.3s both;
+        }
+
+        #hero > a::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.1);
+            transform: translateX(-101%);
+            transition: transform 0.3s ease;
+        }
+
+        #hero > a:hover {
+            transform: translateY(-2px);
+        }
+
+        #hero > a:hover::after {
+            transform: translateX(0);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── SECTIONS SHARED ─── */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        section > h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        section > h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--color-accent);
+            margin: 0.8rem auto 0;
+        }
+
+        /* ─── DEPORTES ─── */
+        #servicios {
+            background: var(--color-surface);
+        }
+
+        .servicios-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--color-border);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.4s, transform 0.4s;
+            cursor: default;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-6px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* ─── GALERIA ─── */
+        #galeria {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            cursor: pointer;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.6s ease;
+            filter: grayscale(40%) brightness(0.7);
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.08);
+            filter: grayscale(0%) brightness(0.5);
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .galeria-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+        }
+
+        .overlay p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-top: 0.3rem;
+            letter-spacing: 1px;
+        }
+
+        /* ─── SOBRE ─── */
+        #nosotros {
+            text-align: center;
+            background: var(--color-surface);
+            position: relative;
+        }
+
+        #nosotros p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* ─── FORM (NO TOCADO - estilos genéricos para que funcione) ─── */
+        #contacto {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        #contact-form label {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            color: var(--color-text);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #contact-form input:focus,
+        #contact-form textarea:focus {
+            border-color: var(--color-accent);
+        }
+
+        #contact-form textarea {
+            resize: vertical;
+        }
+
+        #contact-form button[type="submit"] {
+            padding: 0.9rem 2rem;
+            background: var(--color-accent);
+            color: var(--color-bg);
+            border: none;
+            font-family: var(--font-body);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.3s;
+            align-self: flex-start;
+        }
+
+        #contact-form button[type="submit"]:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            nav button {
+                display: block;
+            }
+
+            #menu-principal {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(10, 10, 10, 0.97);
+                padding: 1.5rem 2rem;
+                gap: 1.2rem;
+                border-bottom: 1px solid var(--color-border);
+            }
+
+            #menu-principal.open {
+                display: flex;
+            }
+
+            .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .overlay {
+                opacity: 1;
+            }
+        }
+
+        /* ─── SCROLL REVEAL ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <nav>
-            <h2>Atalaya Studio</h2>
+<header>
+    <nav>
+        <h2>Atalaya Sports</h2>
+        <button aria-expanded="false">☰</button>
 
-            <!-- BOTÓN MENU -->
-            <button aria-expanded="false">☰</button>
+        <ul id="menu-principal">
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#servicios">Deportes</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#nosotros">Sobre</a></li>
+            <li><a href="#contacto">Comentarios</a></li>
+        </ul>
+    </nav>
+</header>
 
-            <!-- MENU (ID NECESARIO PARA JS) -->
-            <ul id="menu-principal">
-                <li><a href="#hero">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#testimonios">Testimonios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+<main>
 
+<section id="hero">
+    <h1>El deporte como<br><span>estilo de vida</span></h1>
+    <p>Disciplina, salud y mentalidad ganadora.</p>
+    <a href="#contacto">💬 Déjanos tu opinión</a>
+</section>
 
-    <main>
+<section id="servicios">
+    <h2>Deportes populares</h2>
 
-        <!-- HERO -->
-        <section id="hero">
-            <h1>Diseño que convierte ideas en marcas memorables</h1>
+    <div class="servicios-grid">
+        <div class="service-card reveal">⚽ Fútbol</div>
+        <div class="service-card reveal">🏋️ Gimnasio</div>
+        <div class="service-card reveal">🏃 Running</div>
+    </div>
+</section>
 
-            <p>
-                Creamos branding, contenido digital y experiencias visuales
-                que impulsan tu negocio.
-            </p>
+<section id="galeria">
+    <h2>Galería deportiva</h2>
 
-            <a href="#contacto">🚀 Solicitar propuesta</a>
-        </section>
-
-
-        <!-- SERVICIOS -->
-        <section id="servicios">
-
-            <h2>Servicios que hacen crecer tu marca</h2>
-            <p class="subtitle">
-                Creamos soluciones visuales estratégicas para aumentar tu impacto y ventas.
-            </p>
-
-            <div class="servicios-grid">
-
-                <article class="service-card">
-                    <div class="icon">🎨</div>
-                    <h3>Identidad Visual</h3>
-                    <p>Diseñamos marcas sólidas que transmiten confianza y profesionalismo.</p>
-                    <ul>
-                        <li>✔ Logotipo profesional</li>
-                        <li>✔ Manual de marca</li>
-                        <li>✔ Colores y tipografía</li>
-                    </ul>
-                    <span class="badge">Alta demanda</span>
-                    <a href="#contacto">Cotizar servicio →</a>
-                </article>
-
-                <article class="service-card">
-                    <div class="icon">📱</div>
-                    <h3>Contenido para Redes</h3>
-                    <p>Diseños estratégicos que aumentan tu alcance y engagement.</p>
-                    <ul>
-                        <li>✔ Posts y carruseles</li>
-                        <li>✔ Historias y reels</li>
-                        <li>✔ Diseño para campañas</li>
-                    </ul>
-                    <span class="badge">Más vendido</span>
-                    <a href="#contacto">Solicitar ahora →</a>
-                </article>
-
-                <article class="service-card">
-                    <div class="icon">🌐</div>
-                    <h3>Landing Pages</h3>
-                    <p>Creamos páginas modernas enfocadas en convertir visitas en clientes.</p>
-                    <ul>
-                        <li>✔ Diseño responsive</li>
-                        <li>✔ Optimización de velocidad</li>
-                        <li>✔ Alta conversión</li>
-                    </ul>
-                    <span class="badge">Alta conversión</span>
-                    <a href="#contacto">Ver propuesta →</a>
-                </article>
-
+    <div class="galeria-grid">
+        <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Tenis deportivos">
+            <div class="overlay">
+                <h3>Entrenamiento</h3>
+                <p>Disciplina y constancia</p>
             </div>
+        </div>
 
-        </section>
-
-
-        <!-- NOSOTROS -->
-        <section id="nosotros">
-            <h2>Sobre nosotros</h2>
-            <p>
-                En Atalaya Studio combinamos creatividad, estrategia y tecnología
-                para ayudar a las marcas a destacar en el mundo digital.
-            </p>
-        </section>
-
-
-        <!-- TESTIMONIOS -->
-        <section id="testimonios">
-            <h2>Testimonios</h2>
-
-            <!-- ESTE ID ES CLAVE PARA TU JS -->
-            <div id="testimonials-container">
-                <p>Cargando testimonios...</p>
+        <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80" alt="Ciclismo">
+            <div class="overlay">
+                <h3>Ciclismo</h3>
+                <p>Resistencia y energía</p>
             </div>
-        </section>
+        </div>
 
+        <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=900&q=80" alt="Fútbol">
+            <div class="overlay">
+                <h3>Fútbol</h3>
+                <p>Trabajo en equipo</p>
+            </div>
+        </div>
 
-        <!-- CONTACTO -->
-        <section id="contacto">
-            <h2>Contáctanos</h2>
+        <div class="galeria-item reveal">
+            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80" alt="Baloncesto">
+            <div class="overlay">
+                <h3>Baloncesto</h3>
+                <p>Velocidad y precisión</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <!-- FORM CORREGIDO -->
-            <form id="contact-form">
+<section id="nosotros">
+    <h2>Sobre el deporte</h2>
+    <p>El deporte transforma cuerpo y mente. Cada día es una oportunidad para superarte, para ser más fuerte, más rápido, más resiliente. No se trata de competir contra otros — se trata de ser mejor que ayer.</p>
+</section>
 
-                <div>
-                    <label>Nombre</label>
-                    <input type="text" id="nombre" required>
-                </div>
+<!-- FORM NO TOCADO -->
+<section id="contacto">
+    <h2>Comentarios</h2>
 
-                <div>
-                    <label>Correo</label>
-                    <input type="email" id="correo" required>
-                </div>
+    <form id="contact-form">
 
-                <div>
-                    <label>Mensaje</label>
-                    <textarea id="mensaje" rows="4" required></textarea>
-                </div>
+        <div>
+            <label>Nombre</label>
+            <input type="text" id="nombre" required>
+        </div>
 
-                <button type="submit">Enviar mensaje</button>
+        <div>
+            <label>Correo</label>
+            <input type="email" id="correo" required>
+        </div>
 
-            </form>
-        </section>
+        <div>
+            <label>Mensaje</label>
+            <textarea id="mensaje" rows="4" required></textarea>
+        </div>
 
-    </main>
+        <button type="submit">Enviar mensaje</button>
 
+    </form>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2026 Atalaya Studio - Todos los derechos reservados</p>
-    </footer>
+</main>
 
-    <!-- JS (IMPORTANTE) -->
-    <script src="js/app.js"></script>
+<footer>
+    <p>© 2026 Atalaya Sports</p>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('nav button');
+    const menu = document.getElementById('menu-principal');
+
+    menuBtn.addEventListener('click', () => {
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('open');
+    });
+
+    // Close menu on link click
+    menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
-
 </html>

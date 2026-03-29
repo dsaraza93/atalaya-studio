@@ -389,4 +389,85 @@ RESPONSIVE
         font-size: 2rem;
     }
 
+/* =========================
+GALERÍA LIMPIA Y BONITA
+========================= */
+#galeria {
+    padding: 60px 0;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.galeria-item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .galeria-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+MEJORA VISUAL GLOBAL
+========================= */
+
+/* SECCIONES MÁS LIMPIAS */
+section {
+    margin-bottom: 60px;
+}
+
+/* TITULOS MÁS PRO */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* SUBTITULOS */
+.subtitle {
+    font-size: 1rem;
+    color: var(--color-muted);
+}
+
+/* CENTRAR TEXTO GENERAL */
+#hero,
+#nosotros,
+#servicios {
+    text-align: center;
+}
+
+/* HERO MÁS IMPACTANTE */
+#hero {
+    border-radius: 16px;
+    margin-top: 30px;
+}
+
+/* CARDS MÁS BONITAS */
+.service-card {
+    text-align: center;
+}
+
+/* NAV MÁS PRO */
+nav h2 {
+    font-size: 1.4rem;
+}
+
+/* FOOTER MEJORADO */
+footer {
+    margin-top: 60px;
+}
+
 }
