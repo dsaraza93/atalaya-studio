@@ -140,7 +140,8 @@ form.addEventListener("submit", function (event) {
     };
     localStorage.setItem("contacto", JSON.stringify(data));
 
-    fetch("http://localhost:3000/contact", {
+    fetch("https://back-atalaya.onrender.com/contact", {
+        
         method: "POST",
         headers: {
             "Content-Type": "application/json"
